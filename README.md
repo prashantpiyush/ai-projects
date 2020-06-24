@@ -21,7 +21,7 @@ Projects:
 
 
 ### Matchstick problem
-**Problem description:** A predefined arrangement of match sticks is given, where they only form square. The position of flameable object on the match stick is
+A predefined arrangement of match sticks is given, where they only form square. The position of flameable object on the match stick is
 irrelavant for the problem. Each square can have a side containing only 1 match stick, or 2 stick on each, or 3 and so on.
 
 Given a starting arrangement of the matchsticks, containing some number of squares and an end goal defined by the number of square, program a bot such that it 
@@ -56,7 +56,7 @@ Given a initial arrangement of containers and a final arrangement, program a bot
 to be optimal on number of moves, a good enough solution, which takes relatively less time to find, is accepted. In one move, the agent can move any top container
 from any stack to any other stack.
 
-The agent uses A* (A-start), Hill climbing and Greedy Breadth-First Search (GBFS) techniques mixed with different heuristics.
+The agent uses **A* (A-star)**, **Hill climbing** and **Greedy Breadth-First Search (GBFS)** techniques mixed with different heuristics.
 
 Heuristics
 - Out of place: +1 if the container is simply not at its final position
@@ -69,6 +69,27 @@ Heuristics
 
 
 ### Magic Square generator
+Cosider creating the magic square as **Constraint Satisfaction Problem**. Now create an agent, which generates a magic square of given size by modeling 
+a magic square as a CSP.
+```
+# consider a 3 x 3 magic square
+a1 a2 a3
+a4 a5 a6
+a7 a8 a9
+
+These are the values of which make up the square. Then as a CSP the following should hold true
+a1 + a2 + a3 = a4 + a5 + a6
+             = a7 + a8 + a9
+             = a7 + a5 + a3
+             = a1 + a5 + a9
+for each i, ai should belong to set {1, 2, 3, ..., n*n} where and n = size of grid
+and
+for each i and j, ai != aj if i != j
+```
+
+The program uses DFS + Back tracking with/whithout contraint propagation to find a magic square which satisfies all the contstraints.
+**Degree heuristic** and **Minimum remaining value (MRV) heuristics** are used.
+
 ```
 Enter grid size (Enter 0 to show analysis): 3
 Choose executing algorithm:
@@ -111,12 +132,29 @@ Do you want to Continue?
 Enter [y/n]: n
 ```
 
+
 ### Chekers bot
+Create an intelligent bot using DFS and backtracking which can play chekers.
+
+Bot uses **Min-Max algorithm** enhanced with **Alpha-Beta pruning** to find a best possible solution at any given game state.
+
+Note: To make a move, first select a green coin and then select the position where you want to move it. Blue is opponent (bot).
+
 ![](images/chekers_1.png?raw=true)
 ![](images/chekers_2.png?raw=true)
 
 
 ### Solving First-Order logic using Bayesian Network
+Create a bot which can answer first-order query logic. Given the probabilities of some variables, find the probabiliy of a set of selected variables given 
+another set of selected conditional variables.
+
+Bot uses **Bayesian Network** to model first order logic and concept of **Markov blanket** and chain rule.
+
+**Markov Blanket:** A node is conditionally independent of all other nodes in the network, given its parents, children, and children’s parents — that is,
+given its Markov blanket.
+
+Note: first select a set of query variables and then conditional variables. Click on show probabilty to view the calculated probability.
+
 ![](images/bayes_1.png?raw=true)
 ![](images/bayes_2.png?raw=true)
 ![](images/bayes_3.png?raw=true)
