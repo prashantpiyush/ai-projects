@@ -56,7 +56,7 @@ Given a initial arrangement of containers and a final arrangement, program a bot
 to be optimal on number of moves, a good enough solution, which takes relatively less time to find, is accepted. In one move, the agent can move any top container
 from any stack to any other stack.
 
-The agent uses **A* (A-star)**, **Hill climbing** and **Greedy Breadth-First Search (GBFS)** techniques mixed with different heuristics.
+The agent uses **A*** **(A-star)**, **Hill climbing** and **Greedy Breadth-First Search (GBFS)** techniques mixed with different heuristics.
 
 Heuristics
 - Out of place: +1 if the container is simply not at its final position
