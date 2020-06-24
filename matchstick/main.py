@@ -19,8 +19,8 @@ from itertools import product
 from util import Ai
 
 
-app_width = 1600
-app_height = 900
+app_width = 1300
+app_height = 700
 
 pen = None
 
