@@ -140,7 +140,7 @@ Bot uses **Min-Max algorithm** enhanced with **Alpha-Beta pruning** to find a be
 
 Note: To make a move, first select a green coin and then select the position where you want to move it. Blue is opponent (bot).
 
-Note: Option1 - show empty board. Option2 - use Min-max for bot. Option3 - use Min-max with Alpha-beta for bot algorithm.
+Note: Option1 - show empty board. Option2 - use Min-max for bot. Option3 - use Min-max with Alpha-beta for bot algorithm. Option4 - show statistics.
 
 ![](images/chekers_1.png?raw=true)
 ![](images/chekers_2.png?raw=true)
