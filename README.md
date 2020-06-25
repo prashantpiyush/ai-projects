@@ -65,7 +65,7 @@ achieve the goal arrangement.
 The agent uses **A*** **(A-star)**, **Hill climbing** and **Greedy Breadth-First Search (GBFS)**
 techniques mixed with different heuristics.
 
-Heuristics
+**Heuristics used:**
 - Out of place: +1 if the container is simply not at its final position
 - How many moves will it take
   - +1 if the current container is at a different height compared to its height in the goal arrangement
