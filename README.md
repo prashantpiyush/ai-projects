@@ -154,8 +154,8 @@ it. Blue is an opponent (bot).
 Note: Option1 - show empty board. Option2 - use Min-max for bot. Option3 - use Min-max with
 Alpha-beta for bot algorithm. Option4 - show statistics.
 
-![](images/chekers_1.png?raw=true)
-![](images/chekers_2.png?raw=true)
+![](images/checkers_1.png?raw=true)
+![](images/checkers_2.png?raw=true)
 
 
 ### Solving First-Order logic using Bayesian Network
