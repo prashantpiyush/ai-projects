@@ -3,7 +3,7 @@ Projects done for Artificial Intelligence course at BITS Pilani
 
 
 ## How to run
-Only requirement is `Tkinter` which can be installed on a ubuntu using the following command
+The only requirement is `Tkinter` which can be installed on Ubuntu using the following command
 ```
 sudo apt-get install python3-tk
 ```
@@ -15,34 +15,38 @@ sudo apt-get install python3-tk
 Projects:
 1. Matchstick problem
 2. Container stacking problem
-3. Magic square genrator
+3. Magic square generator
 4. Checkers bot
 5. Solving First-Order logic using Bayesian Network
 
 
 ### Matchstick problem
-A predefined arrangement of match sticks is given, where they only form square. The position of flameable object on the match stick is
-irrelavant for the problem. Each square can have a side containing only 1 match stick, or 2 stick on each, or 3 and so on.
+A random pattern of matchsticks is given, where each matchstick is part of a square. The squares
+can be of any sizes, comprising of 1 matchstick each on all four sides, or 2 sticks on each side,
+and so on. The position of the flammable object on the stick is irrelevant to the problem.
 
-Given a starting arrangement of the matchsticks, containing some number of squares and an end goal defined by the number of square, program a bot such that it 
-reaches the end goal using minimum number of moves. And, in one move the intelligent angent can remove only one square. After all the moves are completed, each 
-each matchstick should be a part of a square and the final arrangement should contain exactly the number of squares as defined by the end goal.
+In one move, the intelligent agent can remove only one matchstick. Create a bot such that it can
+reach from an initial arrangement to the end goal, using a minimum number of moves. The end goal is
+defined by the desired number of squares in the final arrangement of sticks. Also, in the final
+position, each stick must be part of a square.
 
 ```
 # defining the number of squares
- _ _ _         _ _ _
-|_|_|_|       |_|   |
-|_|_|_|       |_|_ _|
-|_|_|_|       |_|_|_|
-contains      contains only
-9 squares     6 squares
+ _ _ _         _ _ _             _ _ _
+|_|_|_|       |_|   |           | |_ _|
+|_|_|_|       |_|_ _|           |_|_|_|
+|_|_|_|       |_|_|_|           |_|_|_|
+contains    contains only    invalid start/end
+9 squares     6 squares         position
+                            contains rectangles
 ```
 
-A `grid_size: int`, `percentage_cover: int` and `goal: int` values are provided to the program. The program generates a random arrangement of matchsticks with size of grid given in
-input containing only `floor(grid_size * grid_size * percentage_cover * 0.01)` number of squares. Basically, only `percentage_cover` percent of squares of the 
-full grid.
+A `grid_size: int`, `percentage_cover: int` and `goal: int` values are provided to the program. The
+program generates a random arrangement of matchsticks with the size of the grid given in
+input containing only `floor(grid_size * grid_size * percentage_cover * 0.01)` number of squares.
+Only `percentage_cover` percent of squares of the full grid.
 
-Then the bot tries to find the solution using seaching algorithms, namely BFS and DFS.
+Then the bot tries to find the solution using searching algorithms, namely BFS and DFS.
 
 ![](images/matchstick_1.png?raw=true)
 ![](images/matchstick_2.png?raw=true)
@@ -50,13 +54,16 @@ Then the bot tries to find the solution using seaching algorithms, namely BFS an
 
 
 ### Container stacking problem
-A yard scenario is given where containers are stacked temproarly in order to later load them on a ship or dispatch them to some external users.
+Consider a yard situation, where containers are stacked temporarily to later load them on a ship,
+or dispatch them to some external users.
 
-Given a initial arrangement of containers and a final arrangement, program a bot which reaches the end goal in best min time it can. The solution doesn't have
-to be optimal on number of moves, a good enough solution, which takes relatively less time to find, is accepted. In one move, the agent can move any top container
-from any stack to any other stack.
+Write a bot that can reach the end goal from a given initial arrangement of containers. In one move
+the bot can relocate any of the top containers to the top of another stack. It is not necessary to
+find the path which uses the minimum number of moves but, to create a good enough solution to
+achieve the goal arrangement.
 
-The agent uses **A*** **(A-star)**, **Hill climbing** and **Greedy Breadth-First Search (GBFS)** techniques mixed with different heuristics.
+The agent uses **A*** **(A-star)**, **Hill climbing** and **Greedy Breadth-First Search (GBFS)**
+techniques mixed with different heuristics.
 
 Heuristics
 - Out of place: +1 if the container is simply not at its final position
@@ -69,7 +76,8 @@ Heuristics
 
 
 ### Magic Square generator
-Cosider creating the magic square as **Constraint Satisfaction Problem**. Now create an agent, which generates a magic square of given size by modeling 
+Consider creating the magic square as **Constraint Satisfaction Problem**. Now create an agent,
+which generates a magic square of a given size by modeling
 a magic square as a CSP.
 ```
 # consider a 3 x 3 magic square
@@ -87,7 +95,8 @@ and
 for each i and j, ai != aj if i != j
 ```
 
-The program uses DFS + Back tracking with/whithout contraint propagation to find a magic square which satisfies all the contstraints.
+The program uses DFS + Backtracking with/without constraint propagation to find a magic square that
+satisfies all the constraints.
 **Degree heuristic** and **Minimum remaining value (MRV) heuristics** are used.
 
 ```
@@ -133,29 +142,36 @@ Enter [y/n]: n
 ```
 
 
-### Chekers bot
-Create an intelligent bot using DFS and backtracking which can play chekers.
+### Checkers bot
+Create an intelligent bot using DFS and backtracking which can play checkers.
 
-Bot uses **Min-Max algorithm** enhanced with **Alpha-Beta pruning** to find a best possible solution at any given game state.
+The bot uses the **Min-Max algorithm** enhanced with **Alpha-Beta pruning** to find the best
+possible solution at any given game state.
 
-Note: To make a move, first select a green coin and then select the position where you want to move it. Blue is opponent (bot).
+Note: To make a move, first select a green coin and then select the position where you want to move
+it. Blue is an opponent (bot).
 
-Note: Option1 - show empty board. Option2 - use Min-max for bot. Option3 - use Min-max with Alpha-beta for bot algorithm. Option4 - show statistics.
+Note: Option1 - show empty board. Option2 - use Min-max for bot. Option3 - use Min-max with
+Alpha-beta for bot algorithm. Option4 - show statistics.
 
 ![](images/chekers_1.png?raw=true)
 ![](images/chekers_2.png?raw=true)
 
 
 ### Solving First-Order logic using Bayesian Network
-Create a bot which can answer first-order query logic. Given the probabilities of some variables, find the probabiliy of a set of selected variables given 
+Create a bot that can answer first-order query logic. Given the probabilities of some variables,
+find the probability of a set of selected variables given
 another set of selected conditional variables.
 
-Bot uses **Bayesian Network** to model first order logic and concept of **Markov blanket** and chain rule.
+The bot uses **Bayesian Network** to model first-order logic and concept of **Markov blanket** and
+chain rule.
 
-**Markov Blanket:** A node is conditionally independent of all other nodes in the network, given its parents, children, and children’s parents — that is,
+**Markov Blanket:** A node is conditionally independent of all other nodes in the network, given
+its parents, children, and children’s parents — that is,
 given its Markov blanket.
 
-Note: first select a set of query variables and then conditional variables. Click on show probabilty to view the calculated probability.
+Note: first select a set of query variables and then conditional variables. Click on show
+probability to view the calculated probability.
 
 ![](images/bayes_1.png?raw=true)
 ![](images/bayes_2.png?raw=true)
